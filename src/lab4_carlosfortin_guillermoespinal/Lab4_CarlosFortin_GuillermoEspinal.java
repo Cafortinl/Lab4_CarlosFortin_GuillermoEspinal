@@ -237,28 +237,9 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
         
         
         
+   
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-      
-    }
+    }// fin de memo
         
     public static void Pelea(ArrayList<Mestro> usuario, ArrayList<Mestro> M_Fuego, Avatar avatar) throws Exceptionss{
         
