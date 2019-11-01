@@ -34,8 +34,20 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
                     System.out.println("Ingrese nombre :");
                     zelda.nextLine();
                     String nombreM= zelda.nextLine();
-                    System.out.println("Ingrese edad :");
-                    int edad = zelda.nextInt();
+                    boolean edad_try= true;
+                    int edad =0;
+                    while (edad_try) {  
+                        try{
+                         System.out.println("Ingrese edad :");
+                         edad = zelda.nextInt();
+                         //edad_try = false;
+                        }catch(InputMismatchException e){
+                            System.out.println(e.getMessage());//"La edad solo puede ser numeros vuelva a ingresarla: ");
+                            edad=zelda.nextInt();
+                           // edad=zelda.nextInt();
+                          // edad_try=false;
+                        }
+                    }
                     System.out.println("Ingrese rango :");
                     String rango = zelda.next();
                     System.out.println("Ingrese de que tipo :");
@@ -46,8 +58,8 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
                     int tipo = zelda.nextInt();
                     switch (tipo){
                         case 1:
-                            Maestros.add(new MaestroAire(nombreM, rango, edad));
-                        break;
+                             Maestros.add(new MaestroAire(nombreM, rango, edad));
+                            break;
                         case 2:
                              Maestros.add(new MaestroAgua(nombreM, rango, edad));
                             break;
@@ -58,9 +70,46 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
                              M_fuego.add(new MaestroFuego(nombreM, rango, edad));
                             break;
                     }
-                    
                     break;
                 case 3 :
+                    System.out.println("De que tipo quiere listar los amestros :");
+                    System.out.println("1.- Aire");
+                    System.out.println("2.- Agua");
+                    System.out.println("3.- Tierra");
+                    System.out.println("4.- Fuego");
+                    int lista= zelda.nextInt();
+                    switch (lista){
+                        case 1:
+                            for (int i = 0; i < Maestros.size(); i++) {
+                                if (Maestros.get(i) instanceof MaestroAire){
+                                    System.out.println(""+i+".- "+Maestros.get(i));
+                                }
+                            }
+                            break;
+                        case 2:
+                            for (int i = 0; i < Maestros.size(); i++) {
+                                if (Maestros.get(i) instanceof MaestroAgua){
+                                    System.out.println(""+i+".- "+Maestros.get(i));
+                                }
+                            }
+                            break;
+                        case 3:
+                            for (int i = 0; i < Maestros.size(); i++) {
+                                if (Maestros.get(i) instanceof MaestroTierra){
+                                    System.out.println(""+i+".- "+Maestros.get(i));
+                                }
+                            }
+                            break;
+                        case 4:
+                            for (int i = 0; i < M_fuego.size(); i++) {
+                                if (M_fuego.get(i) instanceof MaestroFuego){
+                                    System.out.println(""+i+".- "+M_fuego.get(i));
+                                }
+                            }
+                            break;
+                    }
+                    break;
+                case 4:
                     break;
             }
             
@@ -73,54 +122,6 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
             }
             
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         
