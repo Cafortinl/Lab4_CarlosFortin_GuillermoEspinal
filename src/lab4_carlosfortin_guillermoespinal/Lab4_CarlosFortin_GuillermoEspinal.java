@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class Lab4_CarlosFortin_GuillermoEspinal {
@@ -14,6 +16,7 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
         ArrayList<Mestro> Maestros = new ArrayList();
         ArrayList<Mestro> M_fuego = new ArrayList();
         ArrayList<Mestro> Usuario = new ArrayList();
+        Avatar avatar = new Avatar();
         int resp = 1;
         while (resp!=0){
             try{
@@ -28,7 +31,8 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
                     System.out.println("Ingrese nombre del avatar: ");
                     zelda.nextLine();
                     String nombreA= zelda.nextLine();
-                    Avatar avatar = new Avatar(nombreA);
+                    avatar.setNombre(nombreA);
+                    
                     break;
                 case 2:
                     System.out.println("Ingrese nombre :");
@@ -131,6 +135,13 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
                     for (int i = 0; i < Usuario.size(); i++) {
                         System.out.println(""+i+".- "+Usuario.get(i));
                     }
+            {
+                try {
+                    Pelea(Usuario, M_fuego, avatar);
+                } catch (Exceptionss ex) {
+                    System.out.println("No cumple con las condiciones");
+                }
+            }
                     break;
             }
             // fin del switch
@@ -242,9 +253,13 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
     }// fin de memo
         
     public static void Pelea(ArrayList<Mestro> usuario, ArrayList<Mestro> M_Fuego, Avatar avatar) throws Exceptionss{
-        
+        ArrayList<Mestro> ronda1=new ArrayList();
+        ArrayList<Mestro> ronda2=new ArrayList();
         int pos,ataq;
-        
+        ronda1.add(M_Fuego.get(0));
+        ronda1.add(M_Fuego.get(1));
+        ronda2.add(M_Fuego.get(2));
+        ronda2.add(M_Fuego.get(3));
         if(usuario.size()<2)
             throw new Exceptionss("El usuario debe tener por lo menos 2 maestros");
         else if(M_Fuego.size()<4)
@@ -252,10 +267,10 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
         else
         {
             while(usuario.size()>0 && M_Fuego.size()>0){
-                ataqueUsuario(usuario, M_Fuego);
-                ataqueUsuario(usuario, M_Fuego);
-                ataqueFuego(usuario, M_Fuego);
-                ataqueFuego(usuario, M_Fuego);
+                ataqueUsuario(usuario, ronda1);
+                ataqueUsuario(usuario, ronda1);
+                ataqueFuego(usuario, ronda1);
+                ataqueFuego(usuario, ronda1);
             }//fin while
             
             if(usuario.size()>0)
