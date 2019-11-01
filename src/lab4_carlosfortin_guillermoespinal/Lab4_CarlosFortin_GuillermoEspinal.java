@@ -43,10 +43,7 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
                          edad = zelda.nextInt();
                          edad_try = false;
                         }catch(Exception e){
-                            System.out.println(e.getMessage());//"La edad solo puede ser numeros vuelva a ingresarla: ");
-                          /* System.out.println("Ingrese edad :");
-                             edad = zelda.nextInt();
-                           edad_try = false;*/
+                           System.out.println("La edad solo puede ser numeros vuelva a ingresarla: ");
                            zelda.next();
                            //zel.da
                           

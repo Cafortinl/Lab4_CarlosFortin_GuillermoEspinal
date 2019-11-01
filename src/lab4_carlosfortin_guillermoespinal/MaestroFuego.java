@@ -25,7 +25,7 @@ public class MaestroFuego extends Mestro{
 
     @Override
     public String toString() {
-        return "MaestroFuego{" + '}';
+        return super.toString()+"MaestroFuego{" + '}';
     }
     public int Ataque1 (){
         return super.getAtaque1();
