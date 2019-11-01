@@ -16,13 +16,10 @@ public class Mestro {
     public Mestro() {
     }
 
-    public Mestro(String nombre, String rango, int edad, int ptos_Vida, int ataque1, int ataque2) {
+    public Mestro(String nombre, String rango, int edad) {
         this.nombre = nombre;
         this.rango = rango;
         this.edad = edad;
-        this.ptos_Vida = ptos_Vida;
-        this.ataque1 = ataque1;
-        this.ataque2 = ataque2;
     }
 
     public String getNombre() {
