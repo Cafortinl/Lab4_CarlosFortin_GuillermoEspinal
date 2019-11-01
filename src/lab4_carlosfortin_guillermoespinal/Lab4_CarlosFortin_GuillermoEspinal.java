@@ -10,6 +10,8 @@ import java.util.logging.Logger;
 
 public class Lab4_CarlosFortin_GuillermoEspinal {
     public static Scanner zelda = new Scanner(System.in);
+    public static int usuario_pos=12 ;
+    public static int fuego=12;
 
     public static void main(String[] args) {
         //yo empiezo el menu de creacion al avatar y a los maestros
@@ -288,13 +290,20 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
         
        int pos,ataq;
        
+       
         try{
             System.out.println("Seleccione al maestro con el que desea atacar: ");
             pos=zelda.nextInt();
+            while (pos==usuario_pos){
+                System.out.println(" No puede ser el mismo maestro");
+                pos=zelda.nextInt();
+            }
         }catch(ArrayIndexOutOfBoundsException e){
             System.out.println("El numero ingresado no es valido. Ingrese la posicion del maestro: ");
             pos=zelda.nextInt();
         }
+        
+        
         try{
             System.out.println("Seleccione al maestro que desea atacar: ");
             ataq=zelda.nextInt();
@@ -325,7 +334,7 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
                 break;
                     
         }//fin switch
-        
+        usuario_pos=pos;
     }    
         
     public static void ataqueFuego(ArrayList<Mestro> usuario, ArrayList<Mestro> M_Fuego){
@@ -333,7 +342,11 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
         int pos,ataq,atack;
         
         pos=rand.nextInt(M_Fuego.size()-1);
+        while(pos==fuego){
+            pos=rand.nextInt(M_Fuego.size()-1);
+        }
         ataq=rand.nextInt(usuario.size()-1);
+        
         atack=1+rand.nextInt(2);
         
         switch(atack){
@@ -351,6 +364,7 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
                     usuario.remove(ataq);
                 break;
         }
+        fuego = pos;
         
     }    
         
