@@ -36,18 +36,23 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
                     String nombreM= zelda.nextLine();
                     boolean edad_try= true;
                     int edad =0;
-                    while (edad_try) {  
+                    while (edad_try== true) {  
                         try{
                          System.out.println("Ingrese edad :");
+                       
                          edad = zelda.nextInt();
-                         //edad_try = false;
-                        }catch(InputMismatchException e){
+                         edad_try = false;
+                        }catch(Exception e){
                             System.out.println(e.getMessage());//"La edad solo puede ser numeros vuelva a ingresarla: ");
-                            edad=zelda.nextInt();
-                           // edad=zelda.nextInt();
-                          // edad_try=false;
+                          /* System.out.println("Ingrese edad :");
+                             edad = zelda.nextInt();
+                           edad_try = false;*/
+                           zelda.next();
+                           //zel.da
+                          
                         }
                     }
+                    
                     System.out.println("Ingrese rango :");
                     String rango = zelda.next();
                     System.out.println("Ingrese de que tipo :");
@@ -112,15 +117,15 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
                 case 4:
                     break;
             }
-            
-            
-            
-            
-            
+            // fin del switch
             }catch(InputMismatchException e){
+                //e.printStackTrace();
                 System.out.println("Solo se pueden ingresar numeros");
+                resp=1;
+               zelda.next();
+               resp =1;
             }
-            
+             
         }
         
         
@@ -236,12 +241,7 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
         
         
         
-        
-        
-        
-        
-        
-        
+      
     }
         
     public static void Pelea(ArrayList<Mestro> usuario, ArrayList<Mestro> M_Fuego, Avatar avatar) throws Exceptionss{
