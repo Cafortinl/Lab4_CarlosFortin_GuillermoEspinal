@@ -1,8 +1,10 @@
 package lab4_carlosfortin_guillermoespinal;
 
 import java.util.ArrayList;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
 
 public class Lab4_CarlosFortin_GuillermoEspinal {
     public static Scanner zelda = new Scanner(System.in);
@@ -241,9 +243,23 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
         
     }
         
+    public static void Pelea(ArrayList<Mestro> usuario, ArrayList<Mestro> M_Fuego, Avatar avatar) throws Exceptionss{
         
-      
+        if(usuario.size()<2)
+            throw new Exceptionss("El usuario debe tener por lo menos 2 maestros");
+        else if(M_Fuego.size()<4)
+            throw new Exceptionss("Deben de haber por lo menos 4 maestros de fuego");
+        else
+        {
+            while(usuario.size()>1 && M_Fuego.size()>1){
+                
+                System.out.println("Seleccione al maestro con el que desea atacar: ");
+                
+            }
+        }
         
+    }   
+          
         
         
         
