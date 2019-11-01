@@ -245,22 +245,97 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
         
     public static void Pelea(ArrayList<Mestro> usuario, ArrayList<Mestro> M_Fuego, Avatar avatar) throws Exceptionss{
         
+        int pos,ataq;
+        
         if(usuario.size()<2)
             throw new Exceptionss("El usuario debe tener por lo menos 2 maestros");
         else if(M_Fuego.size()<4)
             throw new Exceptionss("Deben de haber por lo menos 4 maestros de fuego");
         else
         {
-            while(usuario.size()>1 && M_Fuego.size()>1){
+            while(usuario.size()>0 && M_Fuego.size()>0){
                 
-                System.out.println("Seleccione al maestro con el que desea atacar: ");
-                
-            }
-        }
+                try{
+                    System.out.println("Seleccione al maestro con el que desea atacar: ");
+                    pos=zelda.nextInt();
+                }catch(ArrayIndexOutOfBoundsException e){
+                    System.out.println("El numero ingresado no es valido. Ingrese la posicion del maestro: ");
+                    pos=zelda.nextInt();
+                }
+                try{
+                    System.out.println("Seleccione al maestro que desea atacar: ");
+                    ataq=zelda.nextInt();
+                }catch(ArrayIndexOutOfBoundsException ex){
+                    System.out.println("La posicion ingresada no es valida. Ingrese la posicion del maestro: ");
+                    ataq=zelda.nextInt();
+                }
+                System.out.println("Seleccione el ataque: ");
+                int atack=zelda.nextInt();
+                switch(atack){
+                    
+                    case 1:
+                        M_Fuego.get(ataq).setPtos_Vida(M_Fuego.get(ataq).getPtos_Vida()-usuario.get(pos).getAtaque1());
+                        if(M_Fuego.get(ataq).getPtos_Vida()<=0)
+                            M_Fuego.remove(ataq);
+                        break;
+                        
+                    case 2:
+                        M_Fuego.get(ataq).setPtos_Vida(M_Fuego.get(ataq).getPtos_Vida()-usuario.get(pos).getAtaque2());
+                        if(M_Fuego.get(ataq).getPtos_Vida()<=0)
+                            M_Fuego.remove(ataq);
+                        break;
+                        
+                    default:
+                        System.out.println("El numero ingresado no es valido");
+                        break;
+                    
+                }//fin switch
+            }//fin while
+        }//fin if
         
-    }   
+    }//fin metodo   
           
+    public static void ataqueUsuario(ArrayList<Mestro> usuario, ArrayList<Mestro> M_Fuego){
         
+       int pos,ataq;
+       
+        try{
+            System.out.println("Seleccione al maestro con el que desea atacar: ");
+            pos=zelda.nextInt();
+        }catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("El numero ingresado no es valido. Ingrese la posicion del maestro: ");
+            pos=zelda.nextInt();
+        }
+        try{
+            System.out.println("Seleccione al maestro que desea atacar: ");
+            ataq=zelda.nextInt();
+        }catch(ArrayIndexOutOfBoundsException ex){
+            System.out.println("La posicion ingresada no es valida. Ingrese la posicion del maestro: ");
+            ataq=zelda.nextInt();
+        }
+        System.out.println("Seleccione el ataque: ");
+        int atack=zelda.nextInt();
+        switch(atack){
+                    
+             case 1:
+                M_Fuego.get(ataq).setPtos_Vida(M_Fuego.get(ataq).getPtos_Vida()-usuario.get(pos).getAtaque1());
+                if(M_Fuego.get(ataq).getPtos_Vida()<=0)
+                M_Fuego.remove(ataq);
+                break;
+                        
+            case 2:
+                M_Fuego.get(ataq).setPtos_Vida(M_Fuego.get(ataq).getPtos_Vida()-usuario.get(pos).getAtaque2());
+                if(M_Fuego.get(ataq).getPtos_Vida()<=0)
+                M_Fuego.remove(ataq);
+                break;
+                        
+            default:
+                System.out.println("El numero ingresado no es valido");
+                break;
+                    
+        }//fin switch
+        
+    }    
         
         
         
