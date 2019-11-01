@@ -4,7 +4,7 @@ package lab4_carlosfortin_guillermoespinal;
  *
  * @author Carlos Fortin
  */
-public class Mestro {
+public abstract class Mestro {
     
     private String nombre;
     private String rango;
@@ -75,6 +75,8 @@ public class Mestro {
         return "Mestro{" + "nombre=" + nombre + ", rango=" + rango + ", edad=" + edad + ", ptos_Vida=" + ptos_Vida + ", ataque1=" + ataque1 + ", ataque2=" + ataque2 + '}';
     }
     
+    public abstract int Ataque1();
     
+    public abstract int Ataque2();
     
 }
