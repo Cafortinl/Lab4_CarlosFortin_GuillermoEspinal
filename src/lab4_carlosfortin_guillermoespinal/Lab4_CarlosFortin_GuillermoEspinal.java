@@ -1,7 +1,7 @@
 package lab4_carlosfortin_guillermoespinal;
 
 import java.util.ArrayList;
-
+import java.util.Random;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -255,43 +255,19 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
         else
         {
             while(usuario.size()>0 && M_Fuego.size()>0){
-                
-                try{
-                    System.out.println("Seleccione al maestro con el que desea atacar: ");
-                    pos=zelda.nextInt();
-                }catch(ArrayIndexOutOfBoundsException e){
-                    System.out.println("El numero ingresado no es valido. Ingrese la posicion del maestro: ");
-                    pos=zelda.nextInt();
-                }
-                try{
-                    System.out.println("Seleccione al maestro que desea atacar: ");
-                    ataq=zelda.nextInt();
-                }catch(ArrayIndexOutOfBoundsException ex){
-                    System.out.println("La posicion ingresada no es valida. Ingrese la posicion del maestro: ");
-                    ataq=zelda.nextInt();
-                }
-                System.out.println("Seleccione el ataque: ");
-                int atack=zelda.nextInt();
-                switch(atack){
-                    
-                    case 1:
-                        M_Fuego.get(ataq).setPtos_Vida(M_Fuego.get(ataq).getPtos_Vida()-usuario.get(pos).getAtaque1());
-                        if(M_Fuego.get(ataq).getPtos_Vida()<=0)
-                            M_Fuego.remove(ataq);
-                        break;
-                        
-                    case 2:
-                        M_Fuego.get(ataq).setPtos_Vida(M_Fuego.get(ataq).getPtos_Vida()-usuario.get(pos).getAtaque2());
-                        if(M_Fuego.get(ataq).getPtos_Vida()<=0)
-                            M_Fuego.remove(ataq);
-                        break;
-                        
-                    default:
-                        System.out.println("El numero ingresado no es valido");
-                        break;
-                    
-                }//fin switch
+                ataqueUsuario(usuario, M_Fuego);
+                ataqueUsuario(usuario, M_Fuego);
+                ataqueFuego(usuario, M_Fuego);
+                ataqueFuego(usuario, M_Fuego);
             }//fin while
+            
+            if(usuario.size()>0)
+            {
+                
+            }
+            else
+                System.out.println("La nacion del fuego ha ganado");
+            
         }//fin if
         
     }//fin metodo   
@@ -320,14 +296,16 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
                     
              case 1:
                 M_Fuego.get(ataq).setPtos_Vida(M_Fuego.get(ataq).getPtos_Vida()-usuario.get(pos).getAtaque1());
+                System.out.println(usuario.get(pos).getNombre()+" ha atacado a "+M_Fuego.get(ataq).getNombre()+" haciendo un daño de: "+usuario.get(pos).getAtaque1());
                 if(M_Fuego.get(ataq).getPtos_Vida()<=0)
-                M_Fuego.remove(ataq);
+                    M_Fuego.remove(ataq);
                 break;
                         
             case 2:
                 M_Fuego.get(ataq).setPtos_Vida(M_Fuego.get(ataq).getPtos_Vida()-usuario.get(pos).getAtaque2());
+                System.out.println(usuario.get(pos).getNombre()+" ha atacado a "+M_Fuego.get(ataq).getNombre()+" haciendo un daño de: "+usuario.get(pos).getAtaque2());
                 if(M_Fuego.get(ataq).getPtos_Vida()<=0)
-                M_Fuego.remove(ataq);
+                    M_Fuego.remove(ataq);
                 break;
                         
             default:
@@ -338,9 +316,37 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
         
     }    
         
+    public static void ataqueFuego(ArrayList<Mestro> usuario, ArrayList<Mestro> M_Fuego){
+        Random rand=new Random();
+        int pos,ataq,atack;
+        
+        pos=rand.nextInt(M_Fuego.size()-1);
+        ataq=rand.nextInt(usuario.size()-1);
+        atack=1+rand.nextInt(2);
+        
+        switch(atack){
+            case 1:
+                usuario.get(ataq).setPtos_Vida(usuario.get(ataq).getPtos_Vida()-M_Fuego.get(pos).Ataque1());
+                System.out.println(M_Fuego.get(pos).getNombre()+" ha atacado a "+usuario.get(ataq).getNombre()+" haciendo un daño de: "+M_Fuego.get(pos).getAtaque1());
+                if(usuario.get(ataq).getPtos_Vida()<=0)
+                    usuario.remove(ataq);
+                break;
+                
+            case 2:
+                usuario.get(ataq).setPtos_Vida(usuario.get(ataq).getPtos_Vida()-M_Fuego.get(pos).Ataque2());
+                System.out.println(M_Fuego.get(pos).getNombre()+" ha atacado a "+usuario.get(ataq).getNombre()+" haciendo un daño de: "+M_Fuego.get(pos).getAtaque2());
+                if(usuario.get(ataq).getPtos_Vida()<=0)
+                    usuario.remove(ataq);
+                break;
+        }
+        
+    }    
+        
+    public static void ataqueAvatar(Avatar a, ArrayList<Mestro> M_Fuego){
         
         
         
+    }    
         
         
         
