@@ -45,7 +45,6 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
                         }catch(Exception e){
                            System.out.println("La edad solo puede ser numeros vuelva a ingresarla: ");
                            zelda.next();
-                           //zel.da
                           
                         }
                     }
@@ -112,6 +111,26 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
                     }
                     break;
                 case 4:
+                    while (Usuario.size()<2){
+                    for (int i = 0; i < Maestros.size(); i++) {
+                             System.out.println(""+i+".- "+Maestros.get(i));
+                             
+                            }
+                   System.out.println("Ingrese que maestro quiere elegir : ");
+                        try {
+                            int master = zelda.nextInt();
+                            Usuario.add(Maestros.get(master));
+                        } catch (Exception e) {
+                            System.out.println("no puede ser mayor que la lista ni ingresar algo que no sea un numero, INGRESE UN NUMERO PARA CONTINUAR ");
+                            zelda.next();
+                            
+                        }
+                      }
+                    
+                    System.out.println("REVISION-----------------");
+                    for (int i = 0; i < Usuario.size(); i++) {
+                        System.out.println(""+i+".- "+Usuario.get(i));
+                    }
                     break;
             }
             // fin del switch
@@ -218,28 +237,9 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
         
         
         
+   
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-      
-    }
+    }// fin de memo
         
     public static void Pelea(ArrayList<Mestro> usuario, ArrayList<Mestro> M_Fuego, Avatar avatar) throws Exceptionss{
         
