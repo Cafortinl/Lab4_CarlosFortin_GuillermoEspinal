@@ -10,8 +10,10 @@ import java.util.logging.Logger;
 
 public class Lab4_CarlosFortin_GuillermoEspinal {
     public static Scanner zelda = new Scanner(System.in);
+
     public static int usuario_pos=12 ;
     public static int fuego=12;
+
 
     public static void main(String[] args) {
         //yo empiezo el menu de creacion al avatar y a los maestros
@@ -245,13 +247,7 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
         
         
         
-        
-        
-        
-        
-        
-   
-        
+      
     }// fin de memo
         
     public static void Pelea(ArrayList<Mestro> usuario, ArrayList<Mestro> M_Fuego, Avatar avatar) throws Exceptionss{
@@ -290,7 +286,8 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
         
        int pos,ataq;
        
-       
+
+       listar(usuario);
         try{
             System.out.println("Seleccione al maestro con el que desea atacar: ");
             pos=zelda.nextInt();
@@ -303,7 +300,8 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
             pos=zelda.nextInt();
         }
         
-        
+        listar(M_Fuego);
+
         try{
             System.out.println("Seleccione al maestro que desea atacar: ");
             ataq=zelda.nextInt();
@@ -332,8 +330,9 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
             default:
                 System.out.println("El numero ingresado no es valido");
                 break;
-                    
+                
         }//fin switch
+
         usuario_pos=pos;
     }    
         
@@ -342,9 +341,11 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
         int pos,ataq,atack;
         
         pos=rand.nextInt(M_Fuego.size()-1);
+
         while(pos==fuego){
             pos=rand.nextInt(M_Fuego.size()-1);
         }
+
         ataq=rand.nextInt(usuario.size()-1);
         
         atack=1+rand.nextInt(2);
@@ -369,14 +370,93 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
     }    
         
     public static void ataqueAvatar(Avatar a, ArrayList<Mestro> M_Fuego){
+        int ataq;
+        try{
+            System.out.println("Seleccione al maestro que desea atacar: ");
+            ataq=zelda.nextInt();
+        }catch(ArrayIndexOutOfBoundsException ex){
+            System.out.println("La posicion ingresada no es valida. Ingrese la posicion del maestro: ");
+            ataq=zelda.nextInt();
+        }
+        System.out.println("Seleccione el ataque: ");
+        int atack=zelda.nextInt();
         
-        
+        switch(atack){
+            case 1:
+                M_Fuego.get(ataq).setPtos_Vida(M_Fuego.get(ataq).getPtos_Vida()-a.ataque1);
+                System.out.println(a+" ha atacado a "+M_Fuego.get(ataq).getNombre()+" haciendo un daño de: "+a.getAtaque1());
+                if(M_Fuego.get(ataq).getPtos_Vida()<=0)
+                    M_Fuego.remove(ataq);
+                break;
+                
+            case 2:
+                M_Fuego.get(ataq).setPtos_Vida(M_Fuego.get(ataq).getPtos_Vida()-a.ataque2);
+                System.out.println(a+" ha atacado a "+M_Fuego.get(ataq).getNombre()+" haciendo un daño de: "+a.getAtaque2());
+                if(M_Fuego.get(ataq).getPtos_Vida()<=0)
+                    M_Fuego.remove(ataq);
+                break;
+                
+            case 3:
+                M_Fuego.get(ataq).setPtos_Vida(M_Fuego.get(ataq).getPtos_Vida()-a.ataque3);
+                System.out.println(a+" ha atacado a "+M_Fuego.get(ataq).getNombre()+" haciendo un daño de: "+a.getAtaque3());
+                if(M_Fuego.get(ataq).getPtos_Vida()<=0)
+                    M_Fuego.remove(ataq);
+                break;
+                
+            case 4:
+                M_Fuego.get(ataq).setPtos_Vida(M_Fuego.get(ataq).getPtos_Vida()-a.ataque4);
+                System.out.println(a+" ha atacado a "+M_Fuego.get(ataq).getNombre()+" haciendo un daño de: "+a.getAtaque4());
+                if(M_Fuego.get(ataq).getPtos_Vida()<=0)
+                    M_Fuego.remove(ataq);
+                break;
+                
+            case 5:
+                M_Fuego.get(ataq).setPtos_Vida(M_Fuego.get(ataq).getPtos_Vida()-a.ataque5);
+                System.out.println(a+" ha atacado a "+M_Fuego.get(ataq).getNombre()+" haciendo un daño de: "+a.getAtaque5());
+                if(M_Fuego.get(ataq).getPtos_Vida()<=0)
+                    M_Fuego.remove(ataq);
+                break;
+                
+            case 6:
+                M_Fuego.get(ataq).setPtos_Vida(M_Fuego.get(ataq).getPtos_Vida()-a.ataque6);
+                System.out.println(a+" ha atacado a "+M_Fuego.get(ataq).getNombre()+" haciendo un daño de: "+a.getAtaque6());
+                if(M_Fuego.get(ataq).getPtos_Vida()<=0)
+                    M_Fuego.remove(ataq);
+                break;
+                
+            case 7:
+                M_Fuego.get(ataq).setPtos_Vida(M_Fuego.get(ataq).getPtos_Vida()-a.ataque7);
+                System.out.println(a+" ha atacado a "+M_Fuego.get(ataq).getNombre()+" haciendo un daño de: "+a.getAtaque7());
+                if(M_Fuego.get(ataq).getPtos_Vida()<=0)
+                    M_Fuego.remove(ataq);
+                break;
+                
+            case 8:
+                M_Fuego.get(ataq).setPtos_Vida(M_Fuego.get(ataq).getPtos_Vida()-a.ataque8);
+                System.out.println(a+" ha atacado a "+M_Fuego.get(ataq).getNombre()+" haciendo un daño de: "+a.getAtaque8());
+                if(M_Fuego.get(ataq).getPtos_Vida()<=0)
+                    M_Fuego.remove(ataq);
+                break;
+                
+            default:
+                System.out.println("La opcion ingresada no es valida");
+                break;
+                
+        }
         
     }    
         
+    public static String listar(ArrayList<Mestro> maes){
+        String salida="";
+        for (Mestro m : maes) {
+            salida+=maes.indexOf(m)+".-"+m+"\n";
+        }
+        return salida;
+    }    
         
+    public static void ataqueFuegoAvatar(Avatar a, ArrayList<Mestro> M_Fuego){
         
-        
+    }    
         
         
         
