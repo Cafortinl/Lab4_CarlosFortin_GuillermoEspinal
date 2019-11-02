@@ -273,7 +273,13 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
             
             if(usuario.size()>0)
             {
-                
+                while(avatar.getPtos_vida()>=0 && ronda2.size()>0){
+                ataqueAvatar(avatar, ronda2);
+                ataqueFuegoAvatar(avatar, ronda2);
+                ataqueFuegoAvatar(avatar, ronda2);
+                }
+                if(ronda2.size()<0)
+                    System.out.println("El avatar ha ganado");
             }
             else
                 System.out.println("La nacion del fuego ha ganado");
@@ -455,6 +461,34 @@ public class Lab4_CarlosFortin_GuillermoEspinal {
     }    
         
     public static void ataqueFuegoAvatar(Avatar a, ArrayList<Mestro> M_Fuego){
+        
+        Random rand=new Random();
+        int pos,ataq,atack;
+        
+        pos=rand.nextInt(M_Fuego.size()-1);
+
+        while(pos==fuego){
+            pos=rand.nextInt(M_Fuego.size()-1);
+        }
+        
+        atack=1+rand.nextInt(2);
+        
+        switch(atack){
+            case 1:
+                a.setPtos_vida(a.getPtos_vida()-M_Fuego.get(pos).Ataque1());
+                System.out.println(M_Fuego.get(pos).getNombre()+" ha atacado a "+a.getNombre()+" haciendo un daño de: "+M_Fuego.get(pos).getAtaque1());
+                if(a.getPtos_vida()<=0)
+                    System.out.println("El avatar ha perdido");
+                break;
+                
+            case 2:
+                a.setPtos_vida(a.getPtos_vida()-M_Fuego.get(pos).Ataque2());
+                System.out.println(M_Fuego.get(pos).getNombre()+" ha atacado a "+a.getNombre()+" haciendo un daño de: "+M_Fuego.get(pos).getAtaque2());
+                if(a.getPtos_vida()<=0)
+                    System.out.println("El avatar ha perdido");
+                break;
+        }
+        fuego = pos;
         
     }    
         
